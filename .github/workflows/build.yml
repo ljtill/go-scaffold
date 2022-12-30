@@ -1,0 +1,31 @@
+name: Build
+
+on: push
+
+jobs:
+  build:
+    runs-on: ${{ matrix.run }}
+    strategy:
+      matrix:
+        include:
+          - { run: ubuntu-latest,  os: linux,   arch: amd64 }
+          - { run: ubuntu-latest,  os: linux,   arch: arm64 }
+          - { run: macos-latest,   os: darwin,  arch: amd64 }
+          - { run: macos-latest,   os: darwin,  arch: arm64 }
+          - { run: windows-latest, os: windows, arch: amd64 }
+          - { run: windows-latest, os: windows, arch: arm64 }
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup
+        uses: actions/setup-go@v3
+        with:
+          go-version: 'stable'
+
+      - name: Build
+        run: make build
+        env:
+          GOOS: ${{ matrix.os }}
+          GOACH: ${{ matrix.arch }}
