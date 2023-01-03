@@ -32,11 +32,11 @@ release: clean build
 
 run:
 	@echo "=> Running..."
-	@go run src/main.go
+	@go run ./src
 
 test:
 	@echo "=> Testing..."
-	@go test src/main_test.go
+	@go test ./src
 
 clean:
 	@echo "=> Cleaning..."
