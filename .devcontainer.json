@@ -1,0 +1,12 @@
+{
+    "name": "Go",
+    "image": "mcr.microsoft.com/devcontainers/go:0-1-bullseye",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "golang.go",
+                "github.vscode-github-actions"
+            ]
+        }
+    }
+}
