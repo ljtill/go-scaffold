@@ -1,10 +1,12 @@
 {
-    "name": "Go",
-    "image": "mcr.microsoft.com/devcontainers/go:0-1-bullseye",
+    "name": "Scaffold",
+    "image": "mcr.microsoft.com/devcontainers/base:jammy",
+    "features": {
+        "ghcr.io/devcontainers/features/go:1": {}
+    },
     "customizations": {
         "vscode": {
             "extensions": [
-                "golang.go",
                 "github.vscode-github-actions"
             ]
         }
